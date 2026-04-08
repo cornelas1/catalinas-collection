@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
   <meta name="apple-mobile-web-app-title" content="Catalina's"/>
   <meta name="theme-color" content="#1A1A1A"/>
-  <meta name="description" content="Catalina's Collection â Your prsonal style companion"/>
+  <meta name="description" content="Catalina's Collection — Your prsonal style companion"/>
   <link rel="manifest" href="manifest.json"/>
   <link rel="apple-touch-icon" href="icon-192.png"/>
   <link rel="icon" type="image/png" href="icon-192.png"/>
@@ -45,7 +45,7 @@
 
   <!-- Install prompt -->
   <div id="install-banner">
-    <div class="title">Add to Home Screen</dit>
+    <div class="title">Add to Home Screen</div>
     <div class="desc">Install Catalina's Collection for the full app experience</div>
     <div class="btns">
       <button class="btn-install" id="btn-install">Install</button>
@@ -88,7 +88,7 @@
     <script type="text/babel">
       const { useState, useEffect, useRef } = React;
 
-// âââ Personalized Data (Petite & Curvy, Classic-Sexy-Trendy-Boho) ââââââââââ
+// ─── Personalized Data (Petite & Curvy, Classic-Sexy-Trendy-Boho) ──────────
 const STYLE_PROFILE = {
   name: "Catalina",
     bodyType: "Petite & Curvy",
@@ -98,116 +98,116 @@ const STYLE_PROFILE = {
 
 const CONFIDENCE_TIPS = {
   "Petite & Curvy": [
-    "High-waisted everything â it elongates your legs and defines that gorgeous waist â¨",
-    "V-necklines are your best friend â they lengthen your torso beautifully",
-    "Monochrome outfits create one long line â instant height boost ð«",
+    "High-waisted everything — it elongates your legs and defines that gorgeous waist ✨",
+    "V-necklines are your best friend — they lengthen your torso beautifully",
+    "Monochrome outfits create one long line — instant height boost 💫",
     "A fitted blazer nipped at the waist? Chef's kiss on your frame",
-    "Wrap dresses were literally invented for your body type â embrace them",
-    "Pointed-toe shoes add visual length â a petite girl's secret weapon",
+    "Wrap dresses were literally invented for your body type — embrace them",
+    "Pointed-toe shoes add visual length — a petite girl's secret weapon",
     "Vertical stripes and seam details draw the eye up and down",
     "Structured fabrics hold their shape and highlight your curves perfectly",
   ],
 };
 
 const AFFIRMATIONS = [
-  "You look absolutely stunning today ð",
-  "This outfit was made for your body â own it",
-  "Confidence is the best accessory, and you're dripping in it â¨",
-  "Your curves are your superpower â this outfit knows it",
+  "You look absolutely stunning today 💕",
+  "This outfit was made for your body — own it",
+  "Confidence is the best accessory, and you're dripping in it ✨",
+  "Your curves are your superpower — this outfit knows it",
   "Every head is turning. Yes, because of you",
   "This silhouette? *Chef's kiss* on you",
-  "You don't just wear clothes â you make them better",
-  "Mirror check: flawless â¨",
+  "You don't just wear clothes — you make them better",
+  "Mirror check: flawless ✨",
   "This is giving main character energy",
-  "Styled, confident, unstoppable â that's you today",
+  "Styled, confident, unstoppable — that's you today",
 ];
 
 const WARDROBE = [
-  { id: 1, name: "White Silk Wrap Blouse", category: "Tops", color: "#F5F0EB", colorName: "Ivory", season: "All", image: "ð", favorite: true, fit: "Wrap style highlights waist", lastWorn: "2026-04-01", timesWorn: 8 },
-  { id: 2, name: "Black Fitted Blazer", category: "Outerwear", color: "#1A1A1A", colorName: "Black", season: "Fall", image: "ð§¥", favorite: true, fit: "Nipped waist, elongating cut", lastWorn: "2026-04-05", timesWorn: 12 },
-  { id: 3, name: "High-Waist Wide Trousers", category: "Bottoms", color: "#2C2C2C", colorName: "Charcoal", season: "All", image: "ð", favorite: false, fit: "High rise lengthens legs", lastWorn: "2026-04-05", timesWorn: 10 },
-  { id: 4, name: "Camel V-Neck Sweater", category: "Tops", color: "#C4956A", colorName: "Camel", season: "Winter", image: "ð§¶", favorite: true, fit: "V-neck elongates torso", lastWorn: "2026-03-28", timesWorn: 6 },
-  { id: 5, name: "Navy A-Line Midi Skirt", category: "Bottoms", color: "#1B2A4A", colorName: "Navy", season: "All", image: "ð", favorite: false, fit: "A-line balances proportions", lastWorn: "2026-04-03", timesWorn: 5 },
-  { id: 6, name: "Beige Trench Coat", category: "Outerwear", color: "#D4C5A9", colorName: "Beige", season: "Spring", image: "ð§¥", favorite: true, fit: "Belted waist for definition", lastWorn: "2026-04-06", timesWorn: 7 },
-  { id: 7, name: "White Pointed-Toe Flats", category: "Shoes", color: "#FFFFFF", colorName: "White", season: "All", image: "ð", favorite: false, fit: "Pointed toe adds length", lastWorn: "2026-04-04", timesWorn: 14 },
-  { id: 8, name: "Gold Layered Necklace", category: "Accessories", color: "#D4A847", colorName: "Gold", season: "All", image: "ð¿", favorite: true, fit: "Draws eye to neckline", lastWorn: "2026-04-06", timesWorn: 20 },
-  { id: 9, name: "Black Heeled Ankle Boots", category: "Shoes", color: "#111111", colorName: "Black", season: "All", image: "ð ", favorite: true, fit: "Heel adds height, V-cut elongates", lastWorn: "2026-04-02", timesWorn: 9 },
-  { id: 10, name: "Cream Wrap Dress", category: "Dresses", color: "#F0E6D3", colorName: "Cream", season: "Summer", image: "ð", favorite: true, fit: "Wrap cinches waist perfectly", lastWorn: "2026-03-20", timesWorn: 4 },
-  { id: 11, name: "Terracotta Boho Blouse", category: "Tops", color: "#C4653A", colorName: "Terracotta", season: "Fall", image: "ð", favorite: false, fit: "Flowy with defined shoulders", lastWorn: "2026-03-15", timesWorn: 3 },
-  { id: 12, name: "Denim Fitted Jacket", category: "Outerwear", color: "#5B7FA5", colorName: "Denim", season: "Spring", image: "ð§¥", favorite: false, fit: "Cropped length flatters petite frame", lastWorn: "2026-04-06", timesWorn: 11 },
-  { id: 13, name: "Black Bodycon Midi Dress", category: "Dresses", color: "#1A1A1A", colorName: "Black", season: "All", image: "ð", favorite: true, fit: "Hugs every curve â showstopper", lastWorn: "2026-03-29", timesWorn: 6 },
-  { id: 14, name: "Floral Maxi Skirt", category: "Bottoms", color: "#D4896A", colorName: "Blush Floral", season: "Spring", image: "ð", favorite: false, fit: "High waist with flowy drape", lastWorn: "2026-03-22", timesWorn: 2 },
-  { id: 15, name: "Nude Strappy Heels", category: "Shoes", color: "#D4B896", colorName: "Nude", season: "All", image: "ð ", favorite: true, fit: "Nude elongates the leg line", lastWorn: "2026-03-29", timesWorn: 5 },
-  { id: 16, name: "Chunky Gold Hoops", category: "Accessories", color: "#D4A847", colorName: "Gold", season: "All", image: "â¨", favorite: true, fit: "Statement earrings frame the face", lastWorn: "2026-04-07", timesWorn: 18 },
+  { id: 1, name: "White Silk Wrap Blouse", category: "Tops", color: "#F5F0EB", colorName: "Ivory", season: "All", image: "👚", favorite: true, fit: "Wrap style highlights waist", lastWorn: "2026-04-01", timesWorn: 8 },
+  { id: 2, name: "Black Fitted Blazer", category: "Outerwear", color: "#1A1A1A", colorName: "Black", season: "Fall", image: "🧥", favorite: true, fit: "Nipped waist, elongating cut", lastWorn: "2026-04-05", timesWorn: 12 },
+  { id: 3, name: "High-Waist Wide Trousers", category: "Bottoms", color: "#2C2C2C", colorName: "Charcoal", season: "All", image: "👖", favorite: false, fit: "High rise lengthens legs", lastWorn: "2026-04-05", timesWorn: 10 },
+  { id: 4, name: "Camel V-Neck Sweater", category: "Tops", color: "#C4956A", colorName: "Camel", season: "Winter", image: "🧶", favorite: true, fit: "V-neck elongates torso", lastWorn: "2026-03-28", timesWorn: 6 },
+  { id: 5, name: "Navy A-Line Midi Skirt", category: "Bottoms", color: "#1B2A4A", colorName: "Navy", season: "All", image: "👗", favorite: false, fit: "A-line balances proportions", lastWorn: "2026-04-03", timesWorn: 5 },
+  { id: 6, name: "Beige Trench Coat", category: "Outerwear", color: "#D4C5A9", colorName: "Beige", season: "Spring", image: "🧥", favorite: true, fit: "Belted waist for definition", lastWorn: "2026-04-06", timesWorn: 7 },
+  { id: 7, name: "White Pointed-Toe Flats", category: "Shoes", color: "#FFFFFF", colorName: "White", season: "All", image: "👟", favorite: false, fit: "Pointed toe adds length", lastWorn: "2026-04-04", timesWorn: 14 },
+  { id: 8, name: "Gold Layered Necklace", category: "Accessories", color: "#D4A847", colorName: "Gold", season: "All", image: "📿", favorite: true, fit: "Draws eye to neckline", lastWorn: "2026-04-06", timesWorn: 20 },
+  { id: 9, name: "Black Heeled Ankle Boots", category: "Shoes", color: "#111111", colorName: "Black", season: "All", image: "👠", favorite: true, fit: "Heel adds height, V-cut elongates", lastWorn: "2026-04-02", timesWorn: 9 },
+  { id: 10, name: "Cream Wrap Dress", category: "Dresses", color: "#F0E6D3", colorName: "Cream", season: "Summer", image: "👗", favorite: true, fit: "Wrap cinches waist perfectly", lastWorn: "2026-03-20", timesWorn: 4 },
+  { id: 11, name: "Terracotta Boho Blouse", category: "Tops", color: "#C4653A", colorName: "Terracotta", season: "Fall", image: "👚", favorite: false, fit: "Flowy with defined shoulders", lastWorn: "2026-03-15", timesWorn: 3 },
+  { id: 12, name: "Denim Fitted Jacket", category: "Outerwear", color: "#5B7FA5", colorName: "Denim", season: "Spring", image: "🧥", favorite: false, fit: "Cropped length flatters petite frame", lastWorn: "2026-04-06", timesWorn: 11 },
+  { id: 13, name: "Black Bodycon Midi Dress", category: "Dresses", color: "#1A1A1A", colorName: "Black", season: "All", image: "👗", favorite: true, fit: "Hugs every curve — showstopper", lastWorn: "2026-03-29", timesWorn: 6 },
+  { id: 14, name: "Floral Maxi Skirt", category: "Bottoms", color: "#D4896A", colorName: "Blush Floral", season: "Spring", image: "👗", favorite: false, fit: "High waist with flowy drape", lastWorn: "2026-03-22", timesWorn: 2 },
+  { id: 15, name: "Nude Strappy Heels", category: "Shoes", color: "#D4B896", colorName: "Nude", season: "All", image: "👠", favorite: true, fit: "Nude elongates the leg line", lastWorn: "2026-03-29", timesWorn: 5 },
+  { id: 16, name: "Chunky Gold Hoops", category: "Accessories", color: "#D4A847", colorName: "Gold", season: "All", image: "✨", favorite: true, fit: "Statement earrings frame the face", lastWorn: "2026-04-07", timesWorn: 18 },
 ];
 
 const OUTFIT_PRESETS = [
   {
     id: 1, name: "Boss Babe Brunch", vibe: "Classic & Polished", occasion: "Social",
     items: [2, 1, 3, 9, 8],
-    affirmation: "Power and poise â this outfit says 'I run things' without trying",
-    tip: "The blazer nips at your waist while the high-waist trousers create one long line â pure elongation magic â¨",
+    affirmation: "Power and poise — this outfit says 'I run things' without trying",
+    tip: "The blazer nips at your waist while the high-waist trousers create one long line — pure elongation magic ✨",
   },
   {
     id: 2, name: "Date Night Stunner", vibe: "Sexy & Confident", occasion: "Going Out",
     items: [13, 15, 16, 8],
-    affirmation: "Every curve, celebrated. He won't be able to look away ð",
+    affirmation: "Every curve, celebrated. He won't be able to look away 💕",
     tip: "The bodycon midi + nude heels = miles of leg. The gold jewelry keeps it luxe, not overdone",
   },
   {
     id: 3, name: "Effortless Errands", vibe: "Casual Chic", occasion: "Mom Life",
     items: [12, 11, 3, 7, 16],
-    affirmation: "Comfort meets style â you make 'running errands' look like a photo shoot",
-    tip: "Cropped denim jacket is perfect for petite frames â shows off the high waist of your trousers",
+    affirmation: "Comfort meets style — you make 'running errands' look like a photo shoot",
+    tip: "Cropped denim jacket is perfect for petite frames — shows off the high waist of your trousers",
   },
   {
     id: 4, name: "Boho Weekend", vibe: "Boho & Relaxed", occasion: "Casual",
     items: [11, 14, 7, 8, 16],
-    affirmation: "Free-spirited and gorgeous â this look is pure sunshine energy âï¸",
+    affirmation: "Free-spirited and gorgeous — this look is pure sunshine energy ☀️",
     tip: "The terracotta top with the floral skirt? Earthy perfection. High waist keeps it flattering",
   },
   {
     id: 5, name: "Spring Polished", vibe: "Trendy & Fun", occasion: "Social",
     items: [6, 10, 9, 8, 16],
-    affirmation: "Classic with a twist â you look like you stepped out of a magazine",
+    affirmation: "Classic with a twist — you look like you stepped out of a magazine",
     tip: "Wrap dress under a belted trench = waist definition heaven for your body type",
   },
 ];
 
 const SHOPPING_SMART = [
-  { id: 1, name: "Dickey Blazer", brand: "Veronica Beard", price: "$698", unlocks: 9, reason: "The ultimate petite-friendly blazer â nipped waist, goes with 9 outfits", color: "#1A1A1A", category: "Outerwear", store: "Neiman Marcus" },
-  { id: 2, name: "Good Legs Skinny Jeans", brand: "Good American", price: "$159", unlocks: 10, reason: "Designed for curves â your #1 missing casual bottom, pairs with everything", color: "#1B2A4A", category: "Bottoms", store: "Nordstrom" },
-  { id: 3, name: "Penny Pointed Pump", brand: "Rag & Bone", price: "$395", unlocks: 6, reason: "Nude pointed pump that elongates your legs â unlocks 6 dressy combos", color: "#D4B896", category: "Shoes", store: "Saks Fifth Avenue" },
-  { id: 4, name: "Riviera Cropped Top", brand: "A.L.C.", price: "$225", unlocks: 8, reason: "Fitted crop that shows off high-waist styling â goes with 8 bottoms you own", color: "#F5F0EB", category: "Tops", store: "Anthropologie" },
-  { id: 5, name: "Wrap Mini Dress", brand: "Cinq Ã  Sept", price: "$395", unlocks: 5, reason: "Wrap style cinches your waist â perfect date night to brunch versatility", color: "#C4653A", category: "Dresses", store: "Saks Fifth Avenue" },
-  { id: 6, name: "Puzzle Bag Small", brand: "Loewe", price: "$3,350", unlocks: 7, reason: "Structured everyday bag that elevates every outfit â your closet is begging for this", color: "#C4956A", category: "Accessories", store: "Neiman Marcus" },
-  { id: 7, name: "Airbrush Legging", brand: "Alo", price: "$128", unlocks: 6, reason: "Chic athleisure for errands â petite-friendly compression and length", color: "#1A1A1A", category: "Bottoms", store: "Nordstrom" },
-  { id: 8, name: "Chain Belt", brand: "Chanel", price: "$1,275", unlocks: 8, reason: "Instant waist definition on dresses and high-waist pants â iconic investment", color: "#D4A847", category: "Accessories", store: "Chanel Boutique" },
-  { id: 9, name: "Postcard Mini Skirt", brand: "Zimmermann", price: "$475", unlocks: 5, reason: "High-waist with beautiful print â transitions from brunch to evening", color: "#D4896A", category: "Bottoms", store: "Neiman Marcus" },
-  { id: 10, name: "Gia Blazer Dress", brand: "Simkhai", price: "$595", unlocks: 7, reason: "Blazer meets dress â defines your waist and works solo or layered", color: "#2C2C2C", category: "Dresses", store: "Saks Fifth Avenue" },
+  { id: 1, name: "Dickey Blazer", brand: "Veronica Beard", price: "$698", unlocks: 9, reason: "The ultimate petite-friendly blazer — nipped waist, goes with 9 outfits", color: "#1A1A1A", category: "Outerwear", store: "Neiman Marcus" },
+  { id: 2, name: "Good Legs Skinny Jeans", brand: "Good American", price: "$159", unlocks: 10, reason: "Designed for curves — your #1 missing casual bottom, pairs with everything", color: "#1B2A4A", category: "Bottoms", store: "Nordstrom" },
+  { id: 3, name: "Penny Pointed Pump", brand: "Rag & Bone", price: "$395", unlocks: 6, reason: "Nude pointed pump that elongates your legs — unlocks 6 dressy combos", color: "#D4B896", category: "Shoes", store: "Saks Fifth Avenue" },
+  { id: 4, name: "Riviera Cropped Top", brand: "A.L.C.", price: "$225", unlocks: 8, reason: "Fitted crop that shows off high-waist styling — goes with 8 bottoms you own", color: "#F5F0EB", category: "Tops", store: "Anthropologie" },
+  { id: 5, name: "Wrap Mini Dress", brand: "Cinq à Sept", price: "$395", unlocks: 5, reason: "Wrap style cinches your waist — perfect date night to brunch versatility", color: "#C4653A", category: "Dresses", store: "Saks Fifth Avenue" },
+  { id: 6, name: "Puzzle Bag Small", brand: "Loewe", price: "$3,350", unlocks: 7, reason: "Structured everyday bag that elevates every outfit — your closet is begging for this", color: "#C4956A", category: "Accessories", store: "Neiman Marcus" },
+  { id: 7, name: "Airbrush Legging", brand: "Alo", price: "$128", unlocks: 6, reason: "Chic athleisure for errands — petite-friendly compression and length", color: "#1A1A1A", category: "Bottoms", store: "Nordstrom" },
+  { id: 8, name: "Chain Belt", brand: "Chanel", price: "$1,275", unlocks: 8, reason: "Instant waist definition on dresses and high-waist pants — iconic investment", color: "#D4A847", category: "Accessories", store: "Chanel Boutique" },
+  { id: 9, name: "Postcard Mini Skirt", brand: "Zimmermann", price: "$475", unlocks: 5, reason: "High-waist with beautiful print — transitions from brunch to evening", color: "#D4896A", category: "Bottoms", store: "Neiman Marcus" },
+  { id: 10, name: "Gia Blazer Dress", brand: "Simkhai", price: "$595", unlocks: 7, reason: "Blazer meets dress — defines your waist and works solo or layered", color: "#2C2C2C", category: "Dresses", store: "Saks Fifth Avenue" },
 ];
 
 const HER_STORES = [
-  { name: "Neiman Marcus", icon: "ðï¸" },
-  { name: "Saks Fifth Avenue", icon: "ð" },
-  { name: "Nordstrom", icon: "ðï¸" },
-  { name: "Anthropologie", icon: "ð¿" },
-  { name: "HermÃ¨s", icon: "ð§¡" },
-  { name: "Chanel", icon: "â¦" },
-  { name: "CÃ©line", icon: "â¾" },
-  { name: "Loewe", icon: "ð¤" },
+  { name: "Neiman Marcus", icon: "🏛️" },
+  { name: "Saks Fifth Avenue", icon: "💎" },
+  { name: "Nordstrom", icon: "🛍️" },
+  { name: "Anthropologie", icon: "🌿" },
+  { name: "Hermès", icon: "🧡" },
+  { name: "Chanel", icon: "✦" },
+  { name: "Céline", icon: "◾" },
+  { name: "Loewe", icon: "🟤" },
 ];
 
 const HER_BRANDS = [
-  "Cinq Ã  Sept", "Veronica Beard", "Alice + Olivia", "Simkhai", "Staud",
+  "Cinq à Sept", "Veronica Beard", "Alice + Olivia", "Simkhai", "Staud",
   "Alo", "Farm Rio", "Good American", "Mother", "Rag & Bone",
-  "Zimmermann", "A.L.C.", "JBQ", "Celandine", "HermÃ¨s", "Chanel",
-  "Loewe", "CÃ©line", "Louis Vuitton", "Gucci", "Dior", "YSL",
+  "Zimmermann", "A.L.C.", "JBQ", "Celandine", "Hermès", "Chanel",
+  "Loewe", "Céline", "Louis Vuitton", "Gucci", "Dior", "YSL",
   "Bottega Veneta", "Valentino", "Prada", "Burberry", "Max Mara",
   "Theory", "Vince", "Reformation", "Agolde", "Frame",
 ];
 
-const WEATHER_DATA = { temp: "68Â°F", condition: "Partly Cloudy", icon: "â", suggestion: "Light layers â perfect trench weather" };
+const WEATHER_DATA = { temp: "68°F", condition: "Partly Cloudy", icon: "⛅", suggestion: "Light layers — perfect trench weather" };
 
 // Color harmony map
 const COLOR_MATCH = {
@@ -228,14 +228,14 @@ const COLOR_MATCH = {
 };
 
 const INSPO_BOARDS = [
-  { id: 1, title: "Quiet Luxury", desc: "Understated elegance â rich textures, neutral tones, no logos needed", palette: ["#F5F0EB","#C4956A","#1A1A1A","#D4C5A9"], tags: ["Minimal","Neutral","Luxe"], petitieTip: "Stick to tonal dressing head-to-toe for maximum height illusion" },
+  { id: 1, title: "Quiet Luxury", desc: "Understated elegance — rich textures, neutral tones, no logos needed", palette: ["#F5F0EB","#C4956A","#1A1A1A","#D4C5A9"], tags: ["Minimal","Neutral","Luxe"], petitieTip: "Stick to tonal dressing head-to-toe for maximum height illusion" },
   { id: 2, title: "Date Night Energy", desc: "Fitted silhouettes, statement jewelry, confident and captivating", palette: ["#1A1A1A","#D4A847","#D4B896","#C4653A"], tags: ["Sexy","Evening","Bold"], petitieTip: "A midi dress with heels is the ultimate petite power move" },
   { id: 3, title: "Boho Goddess", desc: "Flowy fabrics, earth tones, layered gold, free-spirited beauty", palette: ["#C4653A","#D4C5A9","#D4896A","#F0E6D3"], tags: ["Boho","Earthy","Relaxed"], petitieTip: "Keep boho tops tucked or cropped so you don't lose your waist" },
-  { id: 4, title: "Street Style Star", desc: "Mix high and low, unexpected combos, trend-forward confidence", palette: ["#5B7FA5","#1A1A1A","#FFFFFF","#D4A847"], tags: ["Trendy","Mix","Statement"], petitieTip: "Oversized jackets work if bottoms are fitted â it's all about balance" },
-  { id: 5, title: "Parisian Mom", desc: "Effortless chic for everyday â because 'mom' and 'stylish' aren't opposites", palette: ["#1B2A4A","#F5F0EB","#C4956A","#2C2C2C"], tags: ["Classic","Easy","French"], petitieTip: "A Breton stripe + high-waist jeans + pointed flats = instant Parisian" },
+  { id: 4, title: "Street Style Star", desc: "Mix high and low, unexpected combos, trend-forward confidence", palette: ["#5B7FA5","#1A1A1A","#FFFFFF","#D4A847"], tags: ["Trendy","Mix","Statement"], petitieTip: "Oversized jackets work if bottoms are fitted — it's all about balance" },
+  { id: 5, title: "Parisian Mom", desc: "Effortless chic for everyday — because 'mom' and 'stylish' aren't opposites", palette: ["#1B2A4A","#F5F0EB","#C4956A","#2C2C2C"], tags: ["Classic","Easy","French"], petitieTip: "A Breton stripe + high-waist jeans + pointed flats = instant Parisian" },
 ];
 
-// âââ Icon Components ââââââââââââââââââââââââââââââââââââââââ
+// ─── Icon Components ────────────────────────────────────────
 const Icon = {
   Magic: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M15 4V2m0 2v2m0-2h2m-2 0h-2"/><path d="M8.5 8.5L21 21"/><path d="M4.5 12.5l1-1m4-4l1-1"/><path d="M20 4l-1 1"/><path d="M3 21l1-1"/><path d="M12 3.5l.5 1"/><path d="M3.5 12l1 .5"/></svg>,
   Closet: () => <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="10" x2="16" y2="14"/></svg>,
@@ -250,7 +250,7 @@ const Icon = {
   Refresh: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>,
 };
 
-// âââ Main App ââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── Main App ────────────────────────────────────────────────
 function FashionApp() {
   const [tab, setTab] = useState("dress");
   const [wardrobe, setWardrobe] = useState(() => {
@@ -330,7 +330,7 @@ function FashionApp() {
   const toggleWish = (id) => setWishlist(prev => prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]);
   const toggleInspo = (id) => setSavedInspo(prev => prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]);
 
-  // âââ Color Season Analysis ââââââââââââââââââââââââââââââ
+  // ─── Color Season Analysis ──────────────────────────────
   const getColorSeasonColors = (skin) => {
     const warm = ["#FDEBD0","#F5CBA7","#D4A07A","#BA8B5C"];
     const isWarm = warm.includes(skin);
@@ -352,7 +352,7 @@ function FashionApp() {
     };
   };
 
-  // âââ Photo Try-On Logic âââââââââââââââââââââââââââââââââ
+  // ─── Photo Try-On Logic ─────────────────────────────────
   const extractDominantColor = (imgSrc, slot) => {
     const img = new Image();
     img.crossOrigin = "anonymous";
@@ -423,13 +423,13 @@ function FashionApp() {
     const isWarmSkin = ["#FDEBD0","#F5CBA7","#D4A07A","#BA8B5C"].includes(selectedSkinTone);
     if (isNeutral) {
       skinMatch = "great";
-      skinComment = `Neutrals are universally flattering â this ${slotName} will pair with almost anything in your closet`;
+      skinComment = `Neutrals are universally flattering — this ${slotName} will pair with almost anything in your closet`;
     } else if ((isWarmSkin && isWarm) || (!isWarmSkin && !isWarm)) {
       skinMatch = "great";
-      skinComment = `This color is in your ${colorAnalysisLocal.season.toLowerCase()} family â it's going to look gorgeous against your skin`;
+      skinComment = `This color is in your ${colorAnalysisLocal.season.toLowerCase()} family — it's going to look gorgeous against your skin`;
     } else {
       skinMatch = "okay";
-      skinComment = `This is outside your ideal color season, but contrast can be beautiful â try pairing it with a neutral to balance`;
+      skinComment = `This is outside your ideal color season, but contrast can be beautiful — try pairing it with a neutral to balance`;
     }
 
     let fitAdvice = "";
@@ -437,46 +437,46 @@ function FashionApp() {
       fitAdvice = isDark
         ? "Dark colors on top are incredibly slimming and create a polished line on your frame"
         : isLight
-        ? "Light tops draw the eye up beautifully â great for balancing your petite & curvy silhouette"
-        : "This mid-tone is versatile â tuck it in or belt it to show off your waist";
+        ? "Light tops draw the eye up beautifully — great for balancing your petite & curvy silhouette"
+        : "This mid-tone is versatile — tuck it in or belt it to show off your waist";
     } else if (slot === "bottom") {
       fitAdvice = isDark
-        ? "Dark bottoms are your best friend â they elongate your legs and create a seamless lower half"
-        : "A lighter bottom draws attention down â pair with a darker or fitted top to keep proportions balanced";
+        ? "Dark bottoms are your best friend — they elongate your legs and create a seamless lower half"
+        : "A lighter bottom draws attention down — pair with a darker or fitted top to keep proportions balanced";
     } else if (slot === "shoes") {
       fitAdvice = isLight || isNeutral
-        ? "Nude or light shoes visually extend your leg line â a petite girl's secret weapon. Pointed toes add even more length"
+        ? "Nude or light shoes visually extend your leg line — a petite girl's secret weapon. Pointed toes add even more length"
         : isDark
-        ? "Dark shoes ground the outfit and pair with almost anything â ankle boots with a V-cut are amazing for petite frames"
-        : "A pop of color on your feet draws the eye down and adds personality â balance with quieter tones above";
+        ? "Dark shoes ground the outfit and pair with almost anything — ankle boots with a V-cut are amazing for petite frames"
+        : "A pop of color on your feet draws the eye down and adds personality — balance with quieter tones above";
     } else if (slot === "outer") {
-      fitAdvice = "For your petite frame, make sure this hits at the hip or above â long coats can overwhelm";
+      fitAdvice = "For your petite frame, make sure this hits at the hip or above — long coats can overwhelm";
     } else if (slot === "necklace") {
       const isGold = isWarm && (r > 180 && g > 140 && b < 100);
       const isSilver = isNeutral && (r + g + b) / 3 > 150;
       fitAdvice = isGold
-        ? "Gold is *chef's kiss* on your skin tone â a pendant that sits at your collarbone draws the eye up and elongates your neck beautifully"
+        ? "Gold is *chef's kiss* on your skin tone — a pendant that sits at your collarbone draws the eye up and elongates your neck beautifully"
         : isSilver
-        ? "Silver is striking â for a petite frame, keep necklaces above the bust line so they don't visually shorten your torso"
-        : "V-shaped or pendant necklaces are your best friend â they create a vertical line that elongates your neckline and torso";
+        ? "Silver is striking — for a petite frame, keep necklaces above the bust line so they don't visually shorten your torso"
+        : "V-shaped or pendant necklaces are your best friend — they create a vertical line that elongates your neckline and torso";
     } else if (slot === "watch") {
       fitAdvice = isLight || isNeutral
-        ? "A delicate watch adds polish without overwhelming your wrist â for petite frames, keep the face under 36mm for perfect proportions"
+        ? "A delicate watch adds polish without overwhelming your wrist — for petite frames, keep the face under 36mm for perfect proportions"
         : isDark
-        ? "A dark-faced watch is bold and chic â it draws attention to your wrist which is one of the most elegant parts of the body"
-        : "This watch color will pop against your skin â make sure the band fits snug (not loose) for the most flattering look on a petite wrist";
+        ? "A dark-faced watch is bold and chic — it draws attention to your wrist which is one of the most elegant parts of the body"
+        : "This watch color will pop against your skin — make sure the band fits snug (not loose) for the most flattering look on a petite wrist";
     } else if (slot === "earrings") {
       fitAdvice = isDark
-        ? "Dark statement earrings frame your face gorgeously â for petite proportions, drop earrings that end above the shoulder are perfect"
+        ? "Dark statement earrings frame your face gorgeously — for petite proportions, drop earrings that end above the shoulder are perfect"
         : isLight
-        ? "Light or pearl earrings keep the look soft and feminine â studs are timeless, drops add drama without weight"
-        : "These will catch the eye right at your face â earrings are the #1 accessory people notice first, and these are going to look stunning";
+        ? "Light or pearl earrings keep the look soft and feminine — studs are timeless, drops add drama without weight"
+        : "These will catch the eye right at your face — earrings are the #1 accessory people notice first, and these are going to look stunning";
     } else if (slot === "ring") {
       fitAdvice = isWarm
-        ? "Warm-toned rings look gorgeous on your hands â stacking thin bands is a great move for petite fingers"
-        : "Cool-toned rings pop beautifully â for petite hands, keep rings proportional and avoid oversized cocktail styles unless it's a statement piece";
+        ? "Warm-toned rings look gorgeous on your hands — stacking thin bands is a great move for petite fingers"
+        : "Cool-toned rings pop beautifully — for petite hands, keep rings proportional and avoid oversized cocktail styles unless it's a statement piece";
     } else {
-      fitAdvice = "Accessories are the finishing touch â gold tones are especially flattering with your warm coloring";
+      fitAdvice = "Accessories are the finishing touch — gold tones are especially flattering with your warm coloring";
     }
 
     // Check harmony with other uploaded pieces
@@ -491,8 +491,8 @@ function FashionApp() {
         return (isWarm && !otherWarm && !isNeutral) || (!isWarm && otherWarm && !isNeutral);
       });
       harmonyNote = clashing
-        ? "Heads up â this mixes warm and cool tones with your other pieces. It can work as intentional contrast, but try a neutral to bridge them"
-        : "This harmonizes nicely with the other pieces you've selected â the tones complement each other";
+        ? "Heads up — this mixes warm and cool tones with your other pieces. It can work as intentional contrast, but try a neutral to bridge them"
+        : "This harmonizes nicely with the other pieces you've selected — the tones complement each other";
     }
 
     setPhotoFeedback({ skinMatch, skinComment, fitAdvice, harmonyNote, slot, color: hex });
@@ -500,7 +500,7 @@ function FashionApp() {
 
   const addItem = () => {
     if (newItem.name) {
-      const emoji = { Tops: "ð", Bottoms: "ð", Dresses: "ð", Outerwear: "ð§¥", Shoes: "ð", Accessories: "ð¿" };
+      const emoji = { Tops: "👚", Bottoms: "👖", Dresses: "👗", Outerwear: "🧥", Shoes: "👟", Accessories: "📿" };
       const newId = wardrobe.length > 0 ? Math.max(...wardrobe.map(w => w.id)) + 1 : 1;
       setWardrobe(prev => [...prev, {
         id: newId,
@@ -509,7 +509,7 @@ function FashionApp() {
         color: newItem.color,
         colorName: newItem.colorName || "Custom",
         season: "All",
-        image: newItem.photo || emoji[newItem.category] || "ð",
+        image: newItem.photo || emoji[newItem.category] || "👚",
         favorite: false,
         fit: "",
         lastWorn: "never",
@@ -550,7 +550,7 @@ function FashionApp() {
         "zara.com": "Zara",
         "hm.com": "H&M",
         "aritzia.com": "Aritzia",
-        "hermes.com": "HermÃ¨s",
+        "hermes.com": "Hermès",
         "chanel.com": "Chanel",
         "louisvuitton.com": "Louis Vuitton",
         "gucci.com": "Gucci",
@@ -578,7 +578,7 @@ function FashionApp() {
     }
   };
 
-  // âââ Styles ââââââââââââââââââââââââââââââââââââââââââââââ
+  // ─── Styles ──────────────────────────────────────────────
   const S = {
     app: { fontFamily: "'Inter',-apple-system,BlinkMacSystemFont,sans-serif", background: "#FAFAF8", color: "#1A1A1A", maxWidth: 440, margin: "0 auto", minHeight: "100vh", position: "relative" },
     header: { padding: "20px 24px 0", display: "flex", justifyContent: "space-between", alignItems: "center" },
@@ -595,14 +595,14 @@ function FashionApp() {
     favBtn: { position: "absolute", top: 6, right: 6, background: "none", border: "none", cursor: "pointer", padding: 2, color: "#D4A847" },
   };
 
-  // âââ DRESS ME Tab âââââââââââââââââââââââââââââââââââââââââ
+  // ─── DRESS ME Tab ─────────────────────────────────────────
   const renderDressMe = () => (
     <div>
       {/* Weather + Greeting */}
       <div style={{ ...S.card, background: "linear-gradient(135deg, #FAFAF8 0%, #F5F0EB 100%)", textAlign: "center", position: "relative" }}>
         <div style={{ fontSize: 11, color: "#C4956A", letterSpacing: 2, textTransform: "uppercase", marginBottom: 4 }}>Good Morning</div>
         <div style={{ fontSize: 22, fontWeight: 300, marginBottom: 2 }}>Here's Your Look</div>
-        <div style={{ fontSize: 12, color: "#888", marginBottom: 4 }}>{WEATHER_DATA.icon} {WEATHER_DATA.temp} Â· {WEATHER_DATA.suggestion}</div>
+        <div style={{ fontSize: 12, color: "#888", marginBottom: 4 }}>{WEATHER_DATA.icon} {WEATHER_DATA.temp} · {WEATHER_DATA.suggestion}</div>
       </div>
 
       {/* Outfit Card */}
@@ -634,12 +634,12 @@ function FashionApp() {
             <span style={{ fontSize: 10, fontWeight: 500, letterSpacing: 1.5, textTransform: "uppercase", color: "#C4956A" }}>Style Confidence</span>
           </div>
           <div style={{ fontSize: 14, fontWeight: 400, color: "#1A1A1A", lineHeight: 1.5, marginBottom: 6 }}>{preset.affirmation}</div>
-          <div style={{ fontSize: 11, color: "#888", lineHeight: 1.5, fontStyle: "italic" }}>ð¡ {preset.tip}</div>
+          <div style={{ fontSize: 11, color: "#888", lineHeight: 1.5, fontStyle: "italic" }}>💡 {preset.tip}</div>
         </div>
 
         {/* Petite & Curvy Tip */}
         <div style={{ fontSize: 11, color: "#888", display: "flex", alignItems: "flex-start", gap: 6, padding: "8px 0" }}>
-          <span style={{ color: "#C4956A", flexShrink: 0 }}>â¦</span>
+          <span style={{ color: "#C4956A", flexShrink: 0 }}>✦</span>
           <span><strong style={{ color: "#666", fontWeight: 500 }}>Petite tip:</strong> {CONFIDENCE_TIPS["Petite & Curvy"][tipIdx]}</span>
         </div>
 
@@ -661,7 +661,7 @@ function FashionApp() {
 
       {/* Recent Outfit Log / Repeat Tracker */}
       <div style={S.section}>Style Diary</div>
-      <div style={{ fontSize: 11, color: "#888", marginBottom: 12, marginTop: -8 }}>Track what you've worn â no more repeat anxiety</div>
+      <div style={{ fontSize: 11, color: "#888", marginBottom: 12, marginTop: -8 }}>Track what you've worn — no more repeat anxiety</div>
       {outfitLog.slice(0, 4).map((entry, i) => {
         const items = entry.items.map(id => wardrobe.find(w => w.id === id)).filter(Boolean);
         return (
@@ -684,7 +684,7 @@ function FashionApp() {
     </div>
   );
 
-  // âââ CLOSET Tab âââââââââââââââââââââââââââââââââââââââââââ
+  // ─── CLOSET Tab ───────────────────────────────────────────
   const renderCloset = () => (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -694,7 +694,7 @@ function FashionApp() {
         </button>
       </div>
       <div style={{ fontSize: 11, color: "#888", marginBottom: 14, marginTop: 4 }}>
-        {wardrobe.length} pieces Â· {wardrobe.filter(w => w.favorite).length} favorites
+        {wardrobe.length} pieces · {wardrobe.filter(w => w.favorite).length} favorites
       </div>
 
       {showAddItem && (
@@ -756,7 +756,7 @@ function FashionApp() {
               <div style={{ position: "relative", display: "inline-block" }}>
                 <img src={newItem.photo} style={{ width: 80, height: 80, objectFit: "cover", borderRadius: 12, border: "1px solid #F0EDE8" }} />
                 <button style={{ position: "absolute", top: -6, right: -6, background: "#1A1A1A", border: "none", color: "#FFF", borderRadius: "50%", width: 20, height: 20, cursor: "pointer", fontSize: 10, display: "flex", alignItems: "center", justifyContent: "center" }}
-                  onClick={() => setNewItem(p => ({ ...p, photo: null }))}>Ã</button>
+                  onClick={() => setNewItem(p => ({ ...p, photo: null }))}>×</button>
               </div>
             ) : (
               <label style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 14px", borderRadius: 10, border: "1px dashed #D4C5A9", cursor: "pointer", fontSize: 11, color: "#888" }}>
@@ -814,11 +814,11 @@ function FashionApp() {
               <div style={{ fontSize: 15, fontWeight: 400, marginBottom: 2 }}>{selectedItem.name}</div>
               {selectedItem.brand && <div style={{ fontSize: 11, color: "#C4956A", marginBottom: 2 }}>{selectedItem.brand}</div>}
               <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: "#888" }}>
-                <div style={S.dot(selectedItem.color, 18)} /> {selectedItem.colorName} Â· {selectedItem.category}
+                <div style={S.dot(selectedItem.color, 18)} /> {selectedItem.colorName} · {selectedItem.category}
               </div>
               {selectedItem.link && (
                 <a href={selectedItem.link} target="_blank" rel="noopener noreferrer" style={{ fontSize: 10, color: "#5B7FA5", textDecoration: "none", marginTop: 4, display: "inline-block" }}>
-                  View on {selectedItem.store || "store"} â
+                  View on {selectedItem.store || "store"} →
                 </a>
               )}
             </div>
@@ -827,12 +827,12 @@ function FashionApp() {
 
           {selectedItem.fit && (
             <div style={{ marginTop: 10, padding: "8px 12px", borderRadius: 10, background: "#FFF9F5", border: "1px solid #F0EDE8", fontSize: 11, color: "#666" }}>
-              <span style={{ color: "#C4956A", fontWeight: 500 }}>â¦ Fit note:</span> {selectedItem.fit}
+              <span style={{ color: "#C4956A", fontWeight: 500 }}>✦ Fit note:</span> {selectedItem.fit}
             </div>
           )}
 
           <div style={{ marginTop: 12, display: "flex", gap: 12, fontSize: 11, color: "#888" }}>
-            <span>Worn {selectedItem.timesWorn}Ã</span>
+            <span>Worn {selectedItem.timesWorn}×</span>
             <span>Last: {selectedItem.lastWorn === "never" ? "Never" : `${getDaysSince(selectedItem.lastWorn)}d ago`}</span>
           </div>
 
@@ -862,7 +862,7 @@ function FashionApp() {
     </div>
   );
 
-  // âââ INSPIRE Tab ââââââââââââââââââââââââââââââââââââââââââ
+  // ─── INSPIRE Tab ──────────────────────────────────────────
   const renderInspire = () => (
     <div>
       <div style={S.section}>Style Boards</div>
@@ -885,14 +885,14 @@ function FashionApp() {
 
           {/* Petite tip per board */}
           <div style={{ padding: "8px 12px", borderRadius: 10, background: "#FFF9F5", border: "1px solid #F0EDE8", fontSize: 11, color: "#666" }}>
-            <span style={{ color: "#C4956A", fontWeight: 500 }}>â¦ For your frame:</span> {board.petitieTip}
+            <span style={{ color: "#C4956A", fontWeight: 500 }}>✦ For your frame:</span> {board.petitieTip}
           </div>
 
           {/* Matching closet items */}
           <div style={{ marginTop: 10, fontSize: 11, color: "#888" }}>
             <span style={{ fontWeight: 500, color: "#C4956A" }}>From your closet: </span>
             {wardrobe.filter(w => board.palette.includes(w.color)).slice(0, 3).map((item, i) => (
-              <span key={item.id}>{i > 0 && " Â· "}{item.image} {item.name.split(" ").slice(-2).join(" ")}</span>
+              <span key={item.id}>{i > 0 && " · "}{item.image} {item.name.split(" ").slice(-2).join(" ")}</span>
             ))}
           </div>
         </div>
@@ -913,13 +913,13 @@ function FashionApp() {
           ))}
         </div>
         <div style={{ fontSize: 12, color: "#888", textAlign: "center" }}>
-          {outfitLog.length} looks logged this week Â· <span style={{ color: "#6B8E6B" }}>0 repeats</span> â¨
+          {outfitLog.length} looks logged this week · <span style={{ color: "#6B8E6B" }}>0 repeats</span> ✨
         </div>
       </div>
     </div>
   );
 
-  // âââ SHOP Tab âââââââââââââââââââââââââââââââââââââââââââââ
+  // ─── SHOP Tab ─────────────────────────────────────────────
   const renderShop = () => (
     <div>
       {/* Her Stores */}
@@ -942,7 +942,7 @@ function FashionApp() {
 
       <div style={S.section}>Smart Shopping List</div>
       <div style={{ fontSize: 11, color: "#888", marginBottom: 14, marginTop: -8 }}>
-        Curated from your favorite brands â ranked by how many new outfits each unlocks
+        Curated from your favorite brands — ranked by how many new outfits each unlocks
       </div>
       {SHOPPING_SMART.sort((a, b) => b.unlocks - a.unlocks).map(item => (
         <div key={item.id} style={{ ...S.card, display: "flex", gap: 12, alignItems: "center" }}>
@@ -951,10 +951,10 @@ function FashionApp() {
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: 13, fontWeight: 400, marginBottom: 1 }}>{item.name}</div>
-            <div style={{ fontSize: 11, color: "#888" }}>{item.brand} Â· {item.price}</div>
+            <div style={{ fontSize: 11, color: "#888" }}>{item.brand} · {item.price}</div>
             <div style={{ fontSize: 9, color: "#BBB", marginTop: 2 }}>Shop at {item.store}</div>
             <div style={{ fontSize: 10, marginTop: 4, display: "flex", alignItems: "center", gap: 4 }}>
-              <span style={{ color: "#C4956A", fontWeight: 500 }}>â¦ Unlocks {item.unlocks} outfits</span>
+              <span style={{ color: "#C4956A", fontWeight: 500 }}>✦ Unlocks {item.unlocks} outfits</span>
             </div>
             <div style={{ fontSize: 10, color: "#888", fontStyle: "italic", marginTop: 2 }}>{item.reason}</div>
           </div>
@@ -986,8 +986,8 @@ function FashionApp() {
               if (!item) return null;
               return (
                 <div key={id} style={{ ...S.tag, padding: "6px 12px", fontSize: 11, display: "flex", alignItems: "center", gap: 6 }}>
-                  {item.name} Â· {item.price}
-                  <button style={{ background: "none", border: "none", cursor: "pointer", color: "#888", padding: 0, fontSize: 12 }} onClick={() => toggleWish(id)}>Ã</button>
+                  {item.name} · {item.price}
+                  <button style={{ background: "none", border: "none", cursor: "pointer", color: "#888", padding: 0, fontSize: 12 }} onClick={() => toggleWish(id)}>×</button>
                 </div>
               );
             })}
@@ -1023,22 +1023,22 @@ function FashionApp() {
       <div style={{ ...S.card, background: "#1A1A1A", color: "#FFF" }}>
         <div style={{ fontSize: 10, letterSpacing: 2, textTransform: "uppercase", color: "#C4956A", marginBottom: 8 }}>Your Brand Cheat Sheet</div>
         {[
-          "Veronica Beard & Cinq Ã  Sept â incredible blazers and structured pieces for your frame",
-          "Good American & Mother â jeans designed for curves, petite-friendly rises",
-          "Zimmermann & Farm Rio â beautiful prints, but size down and hem if needed",
-          "Simkhai & A.L.C. â body-conscious knits and dresses that celebrate your shape",
-          "Alo â chic athleisure that holds petite curves without sagging",
-          "Nordstrom has the best petite sections â always check there first for tailored fits",
+          "Veronica Beard & Cinq à Sept — incredible blazers and structured pieces for your frame",
+          "Good American & Mother — jeans designed for curves, petite-friendly rises",
+          "Zimmermann & Farm Rio — beautiful prints, but size down and hem if needed",
+          "Simkhai & A.L.C. — body-conscious knits and dresses that celebrate your shape",
+          "Alo — chic athleisure that holds petite curves without sagging",
+          "Nordstrom has the best petite sections — always check there first for tailored fits",
         ].map((tip, i) => (
           <div key={i} style={{ fontSize: 11, color: "#DDD", padding: "6px 0", borderBottom: i < 5 ? "1px solid #333" : "none", display: "flex", gap: 8 }}>
-            <span style={{ color: "#C4956A" }}>â¦</span> {tip}
+            <span style={{ color: "#C4956A" }}>✦</span> {tip}
           </div>
         ))}
       </div>
     </div>
   );
 
-  // âââ TRY ON Tab âââââââââââââââââââââââââââââââââââââââââââ
+  // ─── TRY ON Tab ───────────────────────────────────────────
   const skinTones = [
     { name: "Fair", color: "#FDEBD0" },
     { name: "Light", color: "#F5CBA7" },
@@ -1121,7 +1121,7 @@ function FashionApp() {
                   <line x1="34" y1="68" x2="18" y2="140" stroke={selectedSkinTone} strokeWidth="9" strokeLinecap="round"/>
                   <line x1="106" y1="68" x2="122" y2="140" stroke={selectedSkinTone} strokeWidth="9" strokeLinecap="round"/>
 
-                  {/* TORSO â photo or color fill */}
+                  {/* TORSO — photo or color fill */}
                   <defs>
                     {photoUploads.top && (
                       <pattern id="topPat" patternUnits="objectBoundingBox" width="1" height="1">
@@ -1166,7 +1166,7 @@ function FashionApp() {
                   <line x1="47" y1="226" x2="47" y2="254" stroke={selectedSkinTone} strokeWidth="11" strokeLinecap="round"/>
                   <line x1="93" y1="226" x2="93" y2="254" stroke={selectedSkinTone} strokeWidth="11" strokeLinecap="round"/>
 
-                  {/* Shoes â enhanced with heel shape when photo uploaded */}
+                  {/* Shoes — enhanced with heel shape when photo uploaded */}
                   {(photoUploads.shoes || photoDominantColors.shoes) ? (
                     <g>
                       {/* Left shoe with heel */}
@@ -1193,7 +1193,7 @@ function FashionApp() {
                       fill={photoUploads.outer ? "url(#outerPat)" : photoDominantColors.outer || "#AAA"} stroke="#D5CCBF" strokeWidth="0.5" opacity="0.75"/>
                   )}
 
-                  {/* Necklace â arc across collarbone */}
+                  {/* Necklace — arc across collarbone */}
                   {photoDominantColors.necklace && (
                     <g>
                       <path d="M52 60 Q70 72 88 60" fill="none" stroke={photoDominantColors.necklace} strokeWidth="2.5" strokeLinecap="round"/>
@@ -1205,7 +1205,7 @@ function FashionApp() {
                     <path d="M52 60 Q70 72 88 60" fill="none" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round"/>
                   )}
 
-                  {/* Watch â on left wrist */}
+                  {/* Watch — on left wrist */}
                   {photoDominantColors.watch && (
                     <g>
                       <rect x="10" y="124" width="16" height="12" rx="3" fill={photoDominantColors.watch} stroke="#FFF" strokeWidth="0.8"/>
@@ -1213,7 +1213,7 @@ function FashionApp() {
                     </g>
                   )}
 
-                  {/* Earrings â both sides of head */}
+                  {/* Earrings — both sides of head */}
                   {photoDominantColors.earrings && (
                     <g>
                       <circle cx="50" cy="35" r="3.5" fill={photoDominantColors.earrings} stroke="#FFF" strokeWidth="0.8"/>
@@ -1223,97 +1223,7 @@ function FashionApp() {
                     </g>
                   )}
 
-                  {/* Ring â on right hand */}
- height="1">
-                        <image href={photoUploads.bottom} width="80" height="90" preserveAspectRatio="xMidYMid slice"/>
-                      </pattern>
-                    )}
-                    {photoUploads.shoes && (
-                      <pattern id="shoesPat" patternUnits="objectBoundingBox" width="1" height="1">
-                        <image href={photoUploads.shoes} width="30" height="18" preserveAspectRatio="xMidYMid slice"/>
-                      </pattern>
-                    )}
-                    {photoUploads.outer && (
-                      <pattern id="outerPat" patternUnits="objectBoundingBox" width="1" height="1">
-                        <image href={photoUploads.outer} width="30" height="60" preserveAspectRatio="xMidYMid slice"/>
-                      </pattern>
-                    )}
-                  </defs>
-
-                  {/* Torso */}
-                  <path d="M44 62 Q34 62 32 80 Q30 102 36 118 Q40 128 44 140 L96 140 Q100 128 104 118 Q110 102 108 80 Q106 62 96 62 Z"
-                    fill={photoUploads.dress ? "url(#dressPat)" : photoUploads.top ? "url(#topPat)" : photoDominantColors.dress || photoDominantColors.top || "#E8E0D8"}
-                    stroke="#D5CCBF" strokeWidth="1" opacity="0.9"/>
-                  {/* Waist line */}
-                  <path d="M40 116 Q70 110 100 116" fill="none" stroke="#D5CCBF" strokeWidth="0.8" strokeDasharray="3"/>
-
-                  {/* Hips / Bottom */}
-                  <path d="M44 140 Q32 146 30 168 Q28 194 40 226 L54 226 L64 182 L70 182 L76 182 L86 226 L100 226 Q112 194 110 168 Q108 146 96 140 Z"
-                    fill={photoUploads.dress ? "url(#dressPat)" : photoUploads.bottom ? "url(#bottomPat)" : photoDominantColors.dress || photoDominantColors.bottom || "#DDD8D0"}
-                    stroke="#D5CCBF" strokeWidth="1" opacity="0.9"/>
-
-                  {/* Legs */}
-                  <line x1="47" y1="226" x2="47" y2="254" stroke={selectedSkinTone} strokeWidth="11" strokeLinecap="round"/>
-                  <line x1="93" y1="226" x2="93" y2="254" stroke={selectedSkinTone} strokeWidth="11" strokeLinecap="round"/>
-
-                  {/* Shoes â enhanced with heel shape when photo uploaded */}
-                  {(photoUploads.shoes || photoDominantColors.shoes) ? (
-                    <g>
-                      {/* Left shoe with heel */}
-                      <path d="M31 260 Q31 252 40 252 L54 252 Q62 252 62 260 L62 268 Q62 272 54 272 L40 272 Q31 272 31 268 Z"
-                        fill={photoUploads.shoes ? "url(#shoesPat)" : photoDominantColors.shoes}
-                        stroke="#B8B0A8" strokeWidth="0.8"/>
-                      <path d="M31 266 L28 266 L28 272 L31 272" fill={photoUploads.shoes ? "url(#shoesPat)" : photoDominantColors.shoes} stroke="#B8B0A8" strokeWidth="0.5"/>
-                      {/* Right shoe with heel */}
-                      <path d="M78 260 Q78 252 86 252 L100 252 Q108 252 108 260 L108 268 Q108 272 100 272 L86 272 Q78 272 78 268 Z"
-                        fill={photoUploads.shoes ? "url(#shoesPat)" : photoDominantColors.shoes}
-                        stroke="#B8B0A8" strokeWidth="0.8"/>
-                      <path d="M108 266 L111 266 L111 272 L108 272" fill={photoUploads.shoes ? "url(#shoesPat)" : photoDominantColors.shoes} stroke="#B8B0A8" strokeWidth="0.5"/>
-                    </g>
-                  ) : (
-                    <g>
-                      <ellipse cx="47" cy="264" rx="16" ry="9" fill="#C8C0B8" stroke="#B8B0A8" strokeWidth="0.8"/>
-                      <ellipse cx="93" cy="264" rx="16" ry="9" fill="#C8C0B8" stroke="#B8B0A8" strokeWidth="0.8"/>
-                    </g>
-                  )}
-
-                  {/* Outer layer */}
-                  {(photoUploads.outer || photoDominantColors.outer) && (
-                    <path d="M28 62 Q18 66 16 86 Q14 108 20 124 L32 80 Z M112 62 Q122 66 124 86 Q126 108 120 124 L108 80 Z"
-                      fill={photoUploads.outer ? "url(#outerPat)" : photoDominantColors.outer || "#AAA"} stroke="#D5CCBF" strokeWidth="0.5" opacity="0.75"/>
-                  )}
-
-                  {/* Necklace â arc across collarbone */}
-                  {photoDominantColors.necklace && (
-                    <g>
-                      <path d="M52 60 Q70 72 88 60" fill="none" stroke={photoDominantColors.necklace} strokeWidth="2.5" strokeLinecap="round"/>
-                      {/* Pendant */}
-                      <circle cx="70" cy="70" r="4" fill={photoDominantColors.necklace} stroke="#FFF" strokeWidth="0.8"/>
-                    </g>
-                  )}
-                  {photoUploads.necklace && !photoDominantColors.necklace && (
-                    <path d="M52 60 Q70 72 88 60" fill="none" stroke="#D4A847" strokeWidth="2.5" strokeLinecap="round"/>
-                  )}
-
-                  {/* Watch â on left wrist */}
-                  {photoDominantColors.watch && (
-                    <g>
-                      <rect x="10" y="124" width="16" height="12" rx="3" fill={photoDominantColors.watch} stroke="#FFF" strokeWidth="0.8"/>
-                      <line x1="18" y1="126" x2="18" y2="134" stroke="#FFF" strokeWidth="0.5" opacity="0.5"/>
-                    </g>
-                  )}
-
-                  {/* Earrings â both sides of head */}
-                  {photoDominantColors.earrings && (
-                    <g>
-                      <circle cx="50" cy="35" r="3.5" fill={photoDominantColors.earrings} stroke="#FFF" strokeWidth="0.8"/>
-                      <line x1="50" y1="38" x2="50" y2="46" stroke={photoDominantColors.earrings} strokeWidth="1.5" strokeLinecap="round"/>
-                      <circle cx="90" cy="35" r="3.5" fill={photoDominantColors.earrings} stroke="#FFF" strokeWidth="0.8"/>
-                      <line x1="90" y1="38" x2="90" y2="46" stroke={photoDominantColors.earrings} strokeWidth="1.5" strokeLinecap="round"/>
-                    </g>
-                  )}
-
-                  {/* Ring â on right hand */}
+                  {/* Ring — on right hand */}
                   {photoDominantColors.ring && (
                     <g>
                       <ellipse cx="126" cy="138" rx="4" ry="3" fill="none" stroke={photoDominantColors.ring} strokeWidth="2.5"/>
@@ -1326,15 +1236,15 @@ function FashionApp() {
               {/* Upload slots */}
               <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8 }}>
                 {[
-                  { key: "top", label: "Top", icon: "ð" },
-                  { key: "bottom", label: "Bottom", icon: "ð" },
-                  { key: "dress", label: "Dress", icon: "ð" },
-                  { key: "outer", label: "Layer", icon: "ð§¥" },
-                  { key: "shoes", label: "Shoes", icon: "ð " },
-                  { key: "necklace", label: "Necklace", icon: "ð¿" },
-                  { key: "watch", label: "Watch", icon: "â" },
-                  { key: "earrings", label: "Earrings", icon: "â¨" },
-                  { key: "ring", label: "Ring", icon: "ð" },
+                  { key: "top", label: "Top", icon: "👚" },
+                  { key: "bottom", label: "Bottom", icon: "👖" },
+                  { key: "dress", label: "Dress", icon: "👗" },
+                  { key: "outer", label: "Layer", icon: "🧥" },
+                  { key: "shoes", label: "Shoes", icon: "👠" },
+                  { key: "necklace", label: "Necklace", icon: "📿" },
+                  { key: "watch", label: "Watch", icon: "⌚" },
+                  { key: "earrings", label: "Earrings", icon: "✨" },
+                  { key: "ring", label: "Ring", icon: "💍" },
                 ].map(slot => (
                   <div key={slot.key}>
                     {photoUploads[slot.key] ? (
@@ -1349,7 +1259,7 @@ function FashionApp() {
                             </div>
                           )}
                         </div>
-                        <button style={{ background: "none", border: "none", cursor: "pointer", color: "#CCC", fontSize: 12 }} onClick={() => clearPhotoSlot(slot.key)}>Ã</button>
+                        <button style={{ background: "none", border: "none", cursor: "pointer", color: "#CCC", fontSize: 12 }} onClick={() => clearPhotoSlot(slot.key)}>×</button>
                       </div>
                     ) : (
                       <label style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 10px", borderRadius: 10, border: activePhotoSlot === slot.key ? "2px dashed #C4956A" : "1px dashed #DDD", cursor: "pointer", background: activePhotoSlot === slot.key ? "#FFF9F5" : "#FFF", transition: "all 0.2s" }}
@@ -1388,7 +1298,7 @@ function FashionApp() {
           {photoFeedback && (
             <div style={{ ...S.card, border: "1px solid #C4956A", marginTop: 14 }}>
               <div style={{ fontSize: 12, fontWeight: 500, letterSpacing: 1, textTransform: "uppercase", color: "#C4956A", marginBottom: 10 }}>
-                â¦ Style Feedback
+                ✦ Style Feedback
               </div>
 
               {/* Skin tone match */}
@@ -1424,9 +1334,9 @@ function FashionApp() {
           <div style={{ ...S.card, background: "#1A1A1A", color: "#FFF", marginTop: 14 }}>
             <div style={{ fontSize: 10, letterSpacing: 2, textTransform: "uppercase", color: "#C4956A", marginBottom: 6 }}>How to Use</div>
             {[
-              "Snap a photo of any piece â clothes, shoes, necklaces, watches, earrings, or rings",
-              "Upload to any slot â the app reads the color and places it on your silhouette",
-              "Mix everything together â see how that new watch pairs with tonight's dress and heels",
+              "Snap a photo of any piece — clothes, shoes, necklaces, watches, earrings, or rings",
+              "Upload to any slot — the app reads the color and places it on your silhouette",
+              "Mix everything together — see how that new watch pairs with tonight's dress and heels",
               "Get instant feedback on skin tone match, fit for your frame, and jewelry styling tips",
             ].map((tip, i) => (
               <div key={i} style={{ fontSize: 11, color: "#DDD", padding: "5px 0", borderBottom: i < 3 ? "1px solid #333" : "none", display: "flex", gap: 8 }}>
@@ -1509,7 +1419,7 @@ function FashionApp() {
                           onClick={() => slot.setter(null)}>
                           <div style={S.dot(item.color, 14)} />
                           <span style={{ flex: 1 }}>{item.image} {item.name.split(" ").slice(0, 2).join(" ")}</span>
-                          <span style={{ color: "#CCC", fontSize: 10 }}>Ã</span>
+                          <span style={{ color: "#CCC", fontSize: 10 }}>×</span>
                         </div>
                       ) : (
                         <div style={{ flex: 1, padding: "5px 10px", borderRadius: 8, border: "1px dashed #DDD", fontSize: 10, color: "#CCC", textAlign: "center" }}>
@@ -1527,7 +1437,7 @@ function FashionApp() {
               <div style={{ marginTop: 14, padding: "10px 14px", borderRadius: 12, background: harmonyScore >= 70 ? "#F0F5F0" : harmonyScore >= 40 ? "#FFF9F0" : "#FFF5F0", border: "1px solid #F0EDE8", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div>
                   <div style={{ fontSize: 11, fontWeight: 500, color: harmonyScore >= 70 ? "#6B8E6B" : harmonyScore >= 40 ? "#C4956A" : "#C47A6A" }}>
-                    {harmonyScore >= 70 ? "Beautiful combination!" : harmonyScore >= 40 ? "Good â try swapping one piece" : "These clash a bit â shuffle something"}
+                    {harmonyScore >= 70 ? "Beautiful combination!" : harmonyScore >= 40 ? "Good — try swapping one piece" : "These clash a bit — shuffle something"}
                   </div>
                   <div style={{ fontSize: 10, color: "#888", marginTop: 2 }}>Color harmony score</div>
                 </div>
@@ -1540,9 +1450,9 @@ function FashionApp() {
             {/* Fit advice for the combo */}
             {activeTryOnItems.length > 0 && (
               <div style={{ marginTop: 10, padding: "8px 12px", borderRadius: 10, background: "#FFF9F5", border: "1px solid #F0EDE8", fontSize: 11, color: "#666" }}>
-                <span style={{ color: "#C4956A", fontWeight: 500 }}>â¦ Styling tip: </span>
-                {tryOnDress ? "A dress is the easiest petite-friendly move â add a belt to define your waist even more" :
-                 tryOnTop && tryOnBottom ? "Tuck or half-tuck your top to show the high waistline â instant leg lengthening" :
+                <span style={{ color: "#C4956A", fontWeight: 500 }}>✦ Styling tip: </span>
+                {tryOnDress ? "A dress is the easiest petite-friendly move — add a belt to define your waist even more" :
+                 tryOnTop && tryOnBottom ? "Tuck or half-tuck your top to show the high waistline — instant leg lengthening" :
                  "Keep building! The more pieces you add, the better the styling advice gets"}
               </div>
             )}
@@ -1609,7 +1519,7 @@ function FashionApp() {
                 {colorAnalysis.avoid.map((c, i) => (
                   <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
                     <div style={{ width: 32, height: 32, borderRadius: 8, background: c, opacity: 0.5, position: "relative" }}>
-                      <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", fontSize: 16, color: "#FFF" }}>Ã</div>
+                      <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", fontSize: 16, color: "#FFF" }}>×</div>
                     </div>
                     <span style={{ fontSize: 8, color: "#BBB" }}>{colorAnalysis.avoidNames[i]}</span>
                   </div>
@@ -1619,7 +1529,7 @@ function FashionApp() {
           </div>
 
           {/* Your wardrobe scored against skin tone */}
-          <div style={S.section}>Your Closet â Color Rated</div>
+          <div style={S.section}>Your Closet — Color Rated</div>
           <div style={{ fontSize: 11, color: "#888", marginBottom: 12, marginTop: -8 }}>How well each piece complements your skin tone</div>
           {wardrobe.map(item => {
             const isGreat = colorAnalysis.best.includes(item.color);
@@ -1642,7 +1552,7 @@ function FashionApp() {
     </div>
   );
 
-  // âââ Render âââââââââââââââââââââââââââââââââââââââââââââââ
+  // ─── Render ───────────────────────────────────────────────
   return (
     <div style={S.app}>
       <div style={S.header}>
