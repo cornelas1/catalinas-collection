@@ -281,8 +281,8 @@ function FashionApp() {
   const [tryOnShoes, setTryOnShoes] = useState(null);
   const [tryOnOuter, setTryOnOuter] = useState(null);
   const [tryOnAccessory, setTryOnAccessory] = useState(null);
-  const [tryOnMode, setTryOnMode] = useState("outfit"); // "outf  const [selectedSkinTone, setSelectedSkinTone] = useState("#C8956E");
- = useState("#D4A07A");
+  const [tryOnMode, setTryOnMode] = useState("outfit"); // "outfit" | "color" | "photo"
+  const [selectedSkinTone, setSelectedSkinTone] = useState("#C8956E");
   const [photoUploads, setPhotoUploads] = useState({ top: null, bottom: null, dress: null, shoes: null, outer: null, necklace: null, watch: null, earrings: null, ring: null });
   const [photoDominantColors, setPhotoDominantColors] = useState({ top: null, bottom: null, dress: null, shoes: null, outer: null, necklace: null, watch: null, earrings: null, ring: null });
   const [photoFeedback, setPhotoFeedback] = useState(null);
@@ -1108,7 +1108,8 @@ function FashionApp() {
             {/* Silhouette with photo overlays */}
             <div style={{ display: "flex", gap: 16, alignItems: "flex-start", marginTop: 12 }}>
               <div style={{ width: 140, flexShrink: 0, position: "relative" }}>
-                <svg width="140" heig                  {/* Catalina's silhouette — 5'0", petite & curvy */}
+                <svg width="140" height="280" viewBox="0 0 140 280">
+                  {/* Catalina's silhouette — 5'0", petite & curvy */}
                   {/* Long dark hair — past shoulders */}
                   <ellipse cx="70" cy="16" rx="22" ry="14" fill="#2A1810" opacity="0.85"/>
                   <path d="M48 20 Q42 40 40 58 Q38 72 42 82" fill="none" stroke="#2A1810" strokeWidth="8" opacity="0.5" strokeLinecap="round"/>
@@ -1132,7 +1133,6 @@ function FashionApp() {
                   {/* Hands */}
                   <ellipse cx="14" cy="142" rx="5" ry="6" fill={selectedSkinTone} opacity="0.85"/>
                   <ellipse cx="126" cy="142" rx="5" ry="6" fill={selectedSkinTone} opacity="0.85"/>
-dth="9" strokeLinecap="round"/>
 
                   {/* TORSO — photo or color fill */}
                   <defs>
@@ -1160,10 +1160,13 @@ dth="9" strokeLinecap="round"/>
                       <pattern id="outerPat" patternUnits="objectBoundingBox" width="1" height="1">
                         <image href={photoUploads.outer} width="30" height="60" preserveAspectRatio="xMidYMid slice"/>
                       </pattern>
-                                    {/* Torso — curvy bust, nipped waist (hourglass petite) */}
+                    )}
+                  </defs>
+
+                  {/* Torso — curvy bust, nipped waist (hourglass petite) */}
                   <path d="M42 62 Q30 64 28 82 Q26 96 32 108 Q36 116 42 124 Q50 130 46 136 L94 136 Q90 130 98 124 Q104 116 108 108 Q114 96 112 82 Q110 64 98 62 Z"
-110 102 108 80 Q106 62 96 62 Z"
-                    fill={photoUploads.dress ? "url(#dressPat)" : photoUploads.top ? "url(#topPat)" : photoDominantColors.dress || photoD                    stroke="#D5CCBF" strokeWidth="0.8" opacity="0.9"/>
+                    fill={photoUploads.dress ? "url(#dressPat)" : photoUploads.top ? "url(#topPat)" : photoDominantColors.dress || photoDominantColors.top || "#E8E0D8"}
+                    stroke="#D5CCBF" strokeWidth="0.8" opacity="0.9"/>
                   {/* Bust curve subtle highlight */}
                   <path d="M40 72 Q54 82 70 78 Q86 82 100 72" fill="none" stroke="#D5CCBF" strokeWidth="0.5" opacity="0.4"/>
                   {/* Defined waist — her best feature */}
@@ -1171,66 +1174,77 @@ dth="9" strokeLinecap="round"/>
 
                   {/* Hips / Bottom — wider, curvy */}
                   <path d="M46 136 Q28 144 26 168 Q24 194 38 228 L52 228 L62 184 L70 184 L78 184 L88 228 L102 228 Q116 194 114 168 Q112 144 94 136 Z"
- 194 110 168 Q108 146 96 140 Z"
-                    fill={photoUploads.dress ? "url(#dressPat)" : photoUploads.bottom ? "url(#bottomPat)" : photoDominantColors.dress || photoDomi                    stroke="#D5CCBF" strokeWidth="0.8" opacity="0.9"/>
+                    fill={photoUploads.dress ? "url(#dressPat)" : photoUploads.bottom ? "url(#bottomPat)" : photoDominantColors.dress || photoDominantColors.bottom || "#DDD8D0"}
+                    stroke="#D5CCBF" strokeWidth="0.8" opacity="0.9"/>
 
                   {/* Legs — shorter for 5'0" frame, shapely */}
                   <path d="M47 228 Q44 240 44 252" stroke={selectedSkinTone} strokeWidth="11" strokeLinecap="round" fill="none"/>
                   <path d="M93 228 Q96 240 96 252" stroke={selectedSkinTone} strokeWidth="11" strokeLinecap="round" fill="none"/>
-th="11" strokeLinecap="round"/>
 
                   {/* Shoes — enhanced with heel shape when photo uploaded */}
-                  {(photoUploads.shoes || photoDominantColors.sho                      {/* Left shoe with heel — strappy style like Catalina wears */}
+                  {(photoUploads.shoes || photoDominantColors.shoes) ? (
+                    <g>
+                      {/* Left shoe with heel — strappy style like Catalina wears */}
                       <path d="M29 258 Q29 250 38 250 L54 250 Q62 250 62 258 L62 266 Q62 270 54 270 L38 270 Q29 270 29 266 Z"
-4 272 L40 272 Q31 272 31 268 Z"
                         fill={photoUploads.shoes ? "url(#shoesPat)" : photoDominantColors.shoes}
-                        strok                      <path d="M29 264 L26 264 L25 270 L29 270" fill={photoUploads.shoes ? "url(#shoesPat)" : photoDominantColors.shoes} stroke="#B8B0A8" strokeWidth="0.5"/>
-e="#B8B0A8" strokeWidth="0.5"/>
-                                         <path d="M78 258 Q78 250 86 250 L102 250 Q110 250 110 258 L110 266 Q110 270 102 270 L86 270 Q78 270 78 266 Z"
-0 272 L86 272 Q78 272 78 268 Z"
+                        stroke="#B8B0A8" strokeWidth="0.8"/>
+                      <path d="M29 264 L26 264 L25 270 L29 270" fill={photoUploads.shoes ? "url(#shoesPat)" : photoDominantColors.shoes} stroke="#B8B0A8" strokeWidth="0.5"/>
+                      {/* Right shoe with heel */}
+                      <path d="M78 258 Q78 250 86 250 L102 250 Q110 250 110 258 L110 266 Q110 270 102 270 L86 270 Q78 270 78 266 Z"
                         fill={photoUploads.shoes ? "url(#shoesPat)" : photoDominantColors.shoes}
-                        strok                      <path d="M110 264 L113 264 L114 270 L110 270" fill={photoUploads.shoes ? "url(#shoesPat)" : photoDominantColors.shoes} stroke="#B8B0A8" strokeWidth="0.5"/>
-e="#B8B0A8" strokeWidth="0.5"/>
+                        stroke="#B8B0A8" strokeWidth="0.8"/>
+                      <path d="M110 264 L113 264 L114 270 L110 270" fill={photoUploads.shoes ? "url(#shoesPat)" : photoDominantColors.shoes} stroke="#B8B0A8" strokeWidth="0.5"/>
                     </g>
-                                      {/* Default sandals — like the tan Hermès ones she wears */}
+                  ) : (
+                    <g>
+                      {/* Default sandals — like the tan Hermès ones she wears */}
                       <ellipse cx="47" cy="262" rx="16" ry="9" fill="#C9A87C" stroke="#B8A070" strokeWidth="0.8"/>
                       <line x1="39" y1="258" x2="39" y2="266" stroke="#B8A070" strokeWidth="0.8" opacity="0.6"/>
                       <ellipse cx="93" cy="262" rx="16" ry="9" fill="#C9A87C" stroke="#B8A070" strokeWidth="0.8"/>
                       <line x1="101" y1="258" x2="101" y2="266" stroke="#B8A070" strokeWidth="0.8" opacity="0.6"/>
-e="#B8B0A8" strokeWidth="0.8"/>
-                                 {/* Outer layer — fitted for petite frame */}
-            {/* Outer layer */}
-                  {(photoUploads.outer ||                     <path d="M26 62 Q16 68 14 88 Q12 108 18 124 L30 82 Z M114 62 Q124 68 126 88 Q128 108 122 124 L110 82 Z"
- 86 Q126 108 120 124 L108 80 Z"
-                      fill={photoUploads.outer ? "url(#outerPat)" : photoDominantColors.outer || "#AAA"} stroke="#D5CCBF" strokeWidth="0.5" opacity                  {/* Necklace — layered like she wears (turquoise + gold style) */}
+                    </g>
+                  )}
+
+                  {/* Outer layer — fitted for petite frame */}
+                  {(photoUploads.outer || photoDominantColors.outer) && (
+                    <path d="M26 62 Q16 68 14 88 Q12 108 18 124 L30 82 Z M114 62 Q124 68 126 88 Q128 108 122 124 L110 82 Z"
+                      fill={photoUploads.outer ? "url(#outerPat)" : photoDominantColors.outer || "#AAA"} stroke="#D5CCBF" strokeWidth="0.5" opacity="0.75"/>
+                  )}
+
+                  {/* Necklace — layered like she wears (turquoise + gold style) */}
                   {photoDominantColors.necklace ? (
-otoDominantColors.neckla                      <path d="M54 58 Q70 68 86 58" fill="none" stroke={photoDominantColors.necklace} strokeWidth="2" strokeLinecap="round"/>
+                    <g>
+                      <path d="M54 58 Q70 68 86 58" fill="none" stroke={photoDominantColors.necklace} strokeWidth="2" strokeLinecap="round"/>
                       <path d="M50 60 Q70 74 90 60" fill="none" stroke={photoDominantColors.necklace} strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
-h="2.5" strokeLinecap="round"/>
-                            <circle cx="70" cy="70" r="3.5" fill={photoDominantColors.necklace} stroke="#FFF" strokeWidth="0.6"/>
+                      {/* Pendant */}
+                      <circle cx="70" cy="70" r="3.5" fill={photoDominantColors.necklace} stroke="#FFF" strokeWidth="0.6"/>
                     </g>
                   ) : (
                     /* Default: show her layered necklace style */
                     <g opacity="0.25">
                       <path d="M54 58 Q70 66 86 58" fill="none" stroke="#7BB8B0" strokeWidth="1.5" strokeLinecap="round"/>
                       <path d="M50 60 Q70 72 90 60" fill="none" stroke="#D4A847" strokeWidth="1" strokeLinecap="round"/>
-roke="#FFF" strokeWidth="0.8"/>
                     </g>
                   )}
-                  {photoUploads.necklace && !ph                    <g>
+                  {photoUploads.necklace && !photoDominantColors.necklace && (
+                    <g>
                       <path d="M54 58 Q70 68 86 58" fill="none" stroke="#D4A847" strokeWidth="2" strokeLinecap="round"/>
                       <path d="M50 60 Q70 74 90 60" fill="none" stroke="#D4A847" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
                     </g>
-h="2.5" strokeLinecap="round"/>
                   )}
 
                   {/* Watch — on left wrist */}
-                  {photoDominantColors.wat                      <rect x="8" y="122" width="14" height="11" rx="3" fill={photoDominantColors.watch} stroke="#FFF" strokeWidth="0.8"/>
+                  {photoDominantColors.watch && (
+                    <g>
+                      <rect x="8" y="122" width="14" height="11" rx="3" fill={photoDominantColors.watch} stroke="#FFF" strokeWidth="0.8"/>
                       <line x1="15" y1="124" x2="15" y2="131" stroke="#FFF" strokeWidth="0.5" opacity="0.5"/>
-rokeWidth="0.5" opacity="0.5"/>
-                                 {/* Earrings — stud style like she wears */}
+                    </g>
+                  )}
+
+                  {/* Earrings — stud style like she wears */}
                   {photoDominantColors.earrings ? (
-otoDominantColors.earrin                      <circle cx="50" cy="33" r="4" fill={photoDominantColors.earrings} stroke="#FFF" strokeWidth="0.8"/>
+                    <g>
+                      <circle cx="50" cy="33" r="4" fill={photoDominantColors.earrings} stroke="#FFF" strokeWidth="0.8"/>
                       <circle cx="90" cy="33" r="4" fill={photoDominantColors.earrings} stroke="#FFF" strokeWidth="0.8"/>
                     </g>
                   ) : (
@@ -1238,10 +1252,13 @@ otoDominantColors.earrin                      <circle cx="50" cy="33" r="4" fill
                     <g opacity="0.3">
                       <circle cx="50" cy="33" r="3" fill="#F0EDE8" stroke="#DDD" strokeWidth="0.5"/>
                       <circle cx="90" cy="33" r="3" fill="#F0EDE8" stroke="#DDD" strokeWidth="0.5"/>
-h="1.5" strokeLinecap="round"/>
-                                 {/* Rings — stacked style like she wears */}
+                    </g>
+                  )}
+
+                  {/* Rings — stacked style like she wears */}
                   {photoDominantColors.ring ? (
- {photoDominantColors.ri                      <ellipse cx="128" cy="140" rx="4" ry="3" fill="none" stroke={photoDominantColors.ring} strokeWidth="2"/>
+                    <g>
+                      <ellipse cx="128" cy="140" rx="4" ry="3" fill="none" stroke={photoDominantColors.ring} strokeWidth="2"/>
                       <ellipse cx="128" cy="143" rx="3" ry="2" fill="none" stroke={photoDominantColors.ring} strokeWidth="1.5" opacity="0.6"/>
                       <circle cx="128" cy="137" r="2" fill={photoDominantColors.ring}/>
                     </g>
@@ -1250,7 +1267,6 @@ h="1.5" strokeLinecap="round"/>
                     <g opacity="0.25">
                       <ellipse cx="128" cy="140" rx="3.5" ry="2.5" fill="none" stroke="#D4A847" strokeWidth="1.5"/>
                       <ellipse cx="128" cy="143" rx="2.5" ry="2" fill="none" stroke="#D4A847" strokeWidth="1" opacity="0.5"/>
-ll={photoDominantColors.ring}/>
                     </g>
                   )}
                 </svg>
